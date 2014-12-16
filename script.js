@@ -21,7 +21,7 @@ var colorCan = d3.scale.quantize()
 
 //color scale for Imperv_P value
 var colorImperv = d3.scale.quantize()
-          .range(["#05201F","#0A3130","#104342","#175555","#1F696A", "#277C7F","#309195","#39A6AC","#43BBC3","#4DD1DC"])
+          .range(["#05201F","#4DD1DC","#43BBC3","#39A6AC","#309195", "#277C7F","#1F696A","#175555","#104342","#0A3130"])
           .domain([0, 100]);
 
 
@@ -186,7 +186,8 @@ function drawChartImperv(data) {
       .attr("class", "bar")
       .attr("transform", function(d) { return "translate(" + xScale(d.x) + "," + yScale(d.y) + ")"; });
 
-  bar.append("rect")
+  bar
+    .append("rect")
       .attr("x", 0)
       .attr("y", function (d) { (height - padding) - yScale(d.y);})
       .attr("width", xScale(histogramData[0].dx)/2)
